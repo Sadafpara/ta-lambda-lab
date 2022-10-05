@@ -31,7 +31,7 @@ resource "aws_lambda_function" "test_lambda" {
   # source_code_hash = "${base64sha256(file("lambda_function_payload.zip"))}"
   # source_code_hash, is used for updates, decides whether it needs to reupload the archive to the aws,
   #so the checksum will change and terraform knows that it should be reuploaded.
-  #it#s basically the fingerprint of the file if one character changes in the file so does the fingerprint 
+  #it's basically the fingerprint of the file if one character changes in the file so does the fingerprint 
   # instead of using the filebase64sha256 we are going to reference the datasource we created
   source_code_hash = data.archive_file.lambda_deployment.output_base64sha256
 
